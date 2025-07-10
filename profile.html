@@ -1,0 +1,403 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile | TalentShare</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f5fb;
+      color: #333;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      background-color: #4e54c8;
+      padding: 14px 20px;
+      flex-wrap: wrap;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #ddd;
+    }
+
+    header {
+      background-color: #4e54c8;
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 20px 20px;
+      flex-wrap: wrap;
+    }
+
+    .profile-header img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #4e54c8;
+    }
+
+    .profile-info {
+      text-align: center;
+    }
+
+    .profile-info h2 {
+      margin: 10px 0 5px;
+      color: #4e54c8;
+    }
+
+    .profile-info p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .stats div {
+      text-align: center;
+    }
+
+    .stats h4 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #4e54c8;
+    }
+
+    .edit-btn {
+      margin-top: 20px;
+      background-color: #4e54c8;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .edit-btn:hover {
+      background-color: #383ecf;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 30px 20px;
+    }
+
+    .gallery .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 280px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .gallery .card:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery img, .gallery video {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 12px;
+    }
+
+    .card-content h4 {
+      margin: 5px 0;
+      font-size: 1rem;
+      color: #4e54c8;
+    }
+
+    .card-content p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+
+    const username = localStorage.getItem('username') || 'talent_user';
+
+    function logout() {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('username');
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <nav class="navbar">
+    <a href="index.html">🏠 Home</a>
+    <a href="explore.html">🔍 Explore</a>
+    <a href="upload.html">⬆️ Upload</a>
+    <a href="profile.html">👤 Profile</a>
+    <a href="#" onclick="logout()">🔓 Logout</a>
+  </nav>
+
+  <header>
+    <h1 id="profile-username">@talent_user</h1>
+  </header>
+
+  <div class="profile-header">
+    <img src="https://source.unsplash.com/120x120/?profile" alt="Profile Photo">
+    <div class="profile-info">
+      <h2 id="profile-name">Talent User</h2>
+      <p>Artist | Dancer | Foodie</p>
+      <div class="stats">
+        <div>
+          <h4>150</h4>
+          <p>Followers</p>
+        </div>
+        <div>
+          <h4>80</h4>
+          <p>Following</p>
+        </div>
+        <div>
+          <h4>12</h4>
+          <p>Posts</p>
+        </div>
+      </div>
+      <button class="edit-btn">Edit Profile</button>
+    </div>
+  </div>
+
+  <section class="gallery">
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?painting" alt="Art">
+      <div class="card-content">
+        <h4>Sunset Painting</h4>
+        <p>#painting</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?dance" alt="Dance">
+      <div class="card-content">
+        <h4>Folk Fusion</h4>
+        <p>#dance</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?cooking" alt="Cooking">
+      <div class="card-content">
+        <h4>Paneer Special</h4>
+        <p>#cooking</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Set profile name dynamically
+    document.getElementById('profile-username').innerText = '@' + username;
+    document.getElementById('profile-name').innerText = username;
+  </script>
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile | TalentShare</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f0f2f5;
+    }
+
+    header {
+      background: #4e54c8;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 10px 0 0;
+    }
+
+    .logout-btn {
+      background: white;
+      color: #4e54c8;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .card img, .card video {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .card h4 {
+      margin: 10px 0 5px;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // 🔒 Redirect if not logged in
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+      alert("Please log in to view your profile.");
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <header>
+    <h1>Welcome, <span id="username">User</span></h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    <p><strong>Followers:</strong> <span id="followers-count">0</span> | 
+<strong>Following:</strong> <span id="following-count">0</span></p>
+
+  </header>
+
+  <div class="gallery" id="user-gallery">
+    <!-- User uploads appear here -->
+  </div>
+
+  <script>
+    const username = localStorage.getItem("username");
+    document.getElementById("username").textContent = username;
+
+    async function loadUserPosts() {
+      const res = await fetch("https://talentshare-backend.onrender.com/api/posts")
+      // earlier fetch("http://127.0.0.1:5000/api/posts");
+
+      const posts = await res.json();
+
+      const userGallery = document.getElementById("user-gallery");
+      userGallery.innerHTML = "";
+
+      posts.reverse().forEach(post => {
+        // Match posts only for this user
+        if (post.username === username) {
+          const card = document.createElement("div");
+          card.className = "card";
+
+          const isVideo = post.filename.endsWith(".mp4") || post.filename.endsWith(".webm");
+
+          const media = isVideo
+            ? `<video controls src="http://127.0.0.1:5000/uploads/${post.filename}"></video>`
+            : `<img src="http://127.0.0.1:5000/uploads/${post.filename}" alt="${post.title}" />`;
+
+          card.innerHTML = `
+            ${media}
+            <h4>${post.title}</h4>
+            <p>${post.category}</p>
+            <button onclick="deletePost('${post.filename}', this)">🗑️ Delete</button>
+          `;
+
+          userGallery.appendChild(card);
+        }
+      });
+    }
+    
+    async function deletePost(filename, btn) {
+    const confirmDelete = confirm("Are you sure you want to delete this post?");
+    if (!confirmDelete) return;
+
+    const username = localStorage.getItem("username");
+    const res = await fetch("https://talentshare-backend.onrender.com/api/delete", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ filename, username })
+    });
+
+    const data = await res.json();
+    if (data.success) {
+      alert("Deleted successfully.");
+      btn.closest(".card").remove();
+    } else {
+      alert("Failed to delete: " + data.message);
+    }
+  }
+
+  
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = "index.html";
+    }
+
+    loadUserPosts();
+
+    
+  </script>
+</body>
+</html>
