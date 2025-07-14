@@ -2,7 +2,7 @@
 
 TalentShare is a web platform where users can share their creative talents — from art, dance, and poetry to cooking, henna, painting, and more.
 
-This repository contains the **frontend** built using HTML, CSS, and JavaScript.
+🌐 Live Site: https://timely-toffee-3a8375.netlify.app/
 
 ---
 
